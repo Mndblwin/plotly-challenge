@@ -68,3 +68,17 @@ d3.json("samples.json").then((sampleData) => {
         console.log(barCharthovertext);
 
         // Create bar chart in correct location
+
+        var barChartTrace = {
+            type: "bar",
+            y: reformattedLabels,
+            x: barChartValues,
+            text: barCharthovertext,
+            orientation: 'h'
+        };
+
+        var barChartData = [barChartTrace];
+
+        Plotly.newPlot("bar", barChartData);
+
+        // Create bubble chart in correct location
