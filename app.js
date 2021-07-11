@@ -48,3 +48,23 @@ d3.json("samples.json").then((sampleData) => {
     var barChartValues = sampleValues.slice(0, 10).reverse();
     console.log("sample_values")
     console.log(barChartValues);
+
+    var idValues = sampleDict.otu_ids;
+        var barChartLabels = idValues.slice(0, 10).reverse();
+        console.log("otu_ids");
+        console.log(barChartLabels);
+
+        var reformattedLabels = [];
+        barChartLabels.forEach((label) => {
+            reformattedLabels.push("OTU " + label);
+        });
+
+        console.log("reformatted");
+        console.log(reformattedLabels);
+
+        var hovertext = sampleDict.otu_labels;
+        var barCharthovertext = hovertext.slice(0, 10).reverse();
+        console.log("otu_labels");
+        console.log(barCharthovertext);
+
+        // Create bar chart in correct location
