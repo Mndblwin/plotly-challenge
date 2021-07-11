@@ -1,27 +1,7 @@
-// grab references to the input element and the output div
-var text = d3.select("#text");
-var output = d3.select(".output");
+// Define a function that will create metadata for given sample
+function buildMetadata(selection) {
 
-// Function to reverse a string
-function reverseString(str) {
-    return str.split("").reverse().join("");
-}
+    // Read the json data
+    d3.json("samples.json").then((sampleData) => {
 
-// Function to handle input change
-function handleChange() {
-
-    console.log(d3.event)
-    // grab the value of the input field
-    var inputText = d3.event.target.value;
-
-    // clear the existing output
-    output.text("");
-
-    // reverse the input string
-    var reversedInput = reverseString(inputText);
-
-    // Set the output text to the reversed input string
-    output.text(reversedInput);
-}
-
-text.on("change", handleChange);
+        console.log(sampleData);
