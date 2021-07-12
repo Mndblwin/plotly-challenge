@@ -115,3 +115,24 @@ function init() {
 
     // Read json data
     d3.json("samples.json").then((sampleData) => {
+
+           // Parse and filter data to get sample names
+           var parsedData = sampleData.names;
+           console.log("parsed data inside init function")
+           console.log(parsedData);
+   
+           // Add dropdown option for each sample
+           var dropdownMenu = d3.select("#selDataset");
+   
+           parsedData.forEach((name) => {
+               dropdownMenu.append("option").property("value", name).text(name);
+           })
+   
+           // Use first sample to build metadata and initial plots
+           buildMetadata(parsedData[0]);
+   
+           buildCharts(parsedData[0]);
+   
+       });
+   }
+   
