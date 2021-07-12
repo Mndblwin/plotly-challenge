@@ -93,3 +93,25 @@ d3.json("samples.json").then((sampleData) => {
                 size: sampleValues
             }
         };
+
+        var bubbleChartData = [bubbleChartTrace];
+
+        var layout = {
+            showlegend: false,
+            height: 600,
+            width: 1000,
+            xaxis: {
+                title: "OTU ID"
+            }
+        };
+
+        Plotly.newPlot("bubble", bubbleChartData, layout);
+    });
+}
+
+// Define function that will run on page load
+
+function init() {
+
+    // Read json data
+    d3.json("samples.json").then((sampleData) => {
