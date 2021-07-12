@@ -82,3 +82,14 @@ d3.json("samples.json").then((sampleData) => {
         Plotly.newPlot("bar", barChartData);
 
         // Create bubble chart in correct location
+
+        var bubbleChartTrace = {
+            x: idValues,
+            y: sampleValues,
+            text: hovertext,
+            mode: "markers",
+            marker: {
+                color: idValues,
+                size: sampleValues
+            }
+        };
